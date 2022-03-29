@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebBanQuaLuuNiem.Models.NhaCungCap>
+@using WebBanQuaLuuNiem.Models
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "NhaCungCap";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ NHÀ CUNG CẤP</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "ThemMoiNCC")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">  Tên sách </th>
+        <th style="width:300px">  Địa chỉ  </th>
+        <th style="width:100px"> Số điện thoại </th>
+        <th style="width:200px">  </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNCC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaNCC", new { id = item.MaNCC }) |
+                @Html.ActionLink("Chi Tiết", "ChiTietNCC", new { id = item.MaNCC }) |
+                @Html.ActionLink("Xóa", "XoaNCC", new { id = item.MaNCC })
+            </td>
+        </tr>
+    }
+
+</table>

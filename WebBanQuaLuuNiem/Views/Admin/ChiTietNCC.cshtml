@@ -1,0 +1,43 @@
+﻿@model WebBanQuaLuuNiem.Models.NhaCungCap
+
+@{
+    ViewBag.Title = "Chi tiết nhà cung cấp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Nhà cung cấp</h2>
+
+<div>
+    <h4>NhaCungCap</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Nhà cung cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNCC)
+        </dd>
+
+        <dt>
+            Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "SuaNCC", new { id = Model.MaNCC }) |
+    @Html.ActionLink("Trở Về", "TrangChu")
+</p>

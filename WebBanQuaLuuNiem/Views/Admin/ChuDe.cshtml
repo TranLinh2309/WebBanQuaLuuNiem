@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebBanQuaLuuNiem.Models.ChatLieu>
+@using WebBanQuaLuuNiem.Models
+@{
+    ViewBag.Title = "ChuDe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ChuDe</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "ThemMoiCD")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">  Tên sách </th>
+        <th style="width:200px">  </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChatLieu)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaCD", new { id = item.MaChatLieu }) |
+                @Html.ActionLink("Chi tiết", "ChiTietCD", new { id = item.MaChatLieu }) |
+                @Html.ActionLink("Xóa", "XoaCD", new { id = item.MaChatLieu })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebBanQuaLuuNiem.Models.SanPham>
+@{
+    ViewBag.Title = "SPTheoChatLieu";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="text-align:center; color:red"> SẢN PHẨM THEO CHỦ ĐỀ </h3>
+<div class="row">
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "QuaLuuNiem", new { id = sanpham.MaSP})">
+                    <img alt="@sanpham.TenSP" src="~/Images/@sanpham.AnhBia" width="100" />
+                    <div>
+                        <br />
+                        <h4 style="text-align:center">
+                            @sanpham.TenSP
+                        </h4>
+                        <p></p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right"> 15 review</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+</div>

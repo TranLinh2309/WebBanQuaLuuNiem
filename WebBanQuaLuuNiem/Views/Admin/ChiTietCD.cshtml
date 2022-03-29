@@ -1,0 +1,27 @@
+﻿@model WebBanQuaLuuNiem.Models.ChatLieu
+
+@{
+    ViewBag.Title = "ChiTietCD";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CHI TIẾT CHỦ ĐỀ</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên chất liệu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChatLieu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "SuaCD", new { id = Model.MaChatLieu }) |
+    @Html.ActionLink("Trở Về", "ChuDe")
+</p>
